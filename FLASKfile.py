@@ -1,8 +1,3 @@
-%matplotlib inline
-from matplotlib import style
-style.use('fivethirtyeight')
-import matplotlib.pyplot as plt
-
 import numpy as np
 import pandas as pd
 
@@ -58,8 +53,8 @@ def tobsjson():
     return jsonify(temps)
 
 
-@app.route("/api/v1.0/<start>"):
-def start(start)
+@app.route("/api/v1.0/<start>")
+def start(start):
     start = dt.datetime.strptime(start, "%y-%m-%d")
     startresults = session.query(func.min(Measurement.tobs),func.avg(Measurement.tobs), func.max(Measurement.tobs)).filter(Measurement.date >= start).group_by(Measurement.date).all()
     return jsonify(startresults)
